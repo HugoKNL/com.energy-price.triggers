@@ -1,3 +1,6 @@
 {
-  "extends": "athom"
+  "extends": ["athom/homey-app", "plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": "warn"
+  }
 }
