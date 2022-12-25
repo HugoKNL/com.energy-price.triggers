@@ -3,5 +3,5 @@
   "compilerOptions": {
     "allowJs": false,
     "outDir": ".homeybuild/",
-  }
+  },
 }

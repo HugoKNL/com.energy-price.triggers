@@ -1,6 +1,23 @@
 {
   "extends": ["athom/homey-app", "plugin:prettier/recommended"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".js"],
+        "moduleDirectory": ["types", "node_modules"]
+      }
+    }
   }
 }

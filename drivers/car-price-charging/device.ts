@@ -1,0 +1,61 @@
+"use strict";
+
+import Homey from "homey";
+
+class MyDevice extends Homey.Device {
+    /**
+     * onInit is called when the device is initialized.
+     */
+    onInit = async () => {
+        this.log("MyDevice has been initialized");
+
+        this.registerCapabilityListener("onoff", async (value) => {
+            this.log("Turned On/Off: ", value);
+        });
+    };
+
+    /**
+     * onAdded is called when the user adds the device, called just after pairing.
+     */
+    onAdded = async () => {
+        this.log("MyDevice has been added");
+    };
+
+    /**
+     * onSettings is called when the user updates the device's settings.
+     * @param {object} event the onSettings event data
+     * @param {object} event.oldSettings The old settings object
+     * @param {object} event.newSettings The new settings object
+     * @param {string[]} event.changedKeys An array of keys changed since the previous version
+     * @returns {Promise<string|void>} return a custom message that will be displayed
+     */
+    onSettings = async ({
+        oldSettings,
+        newSettings,
+        changedKeys,
+    }: {
+        oldSettings: object;
+        newSettings: object;
+        changedKeys: string[];
+    }): Promise<string | void> => {
+        this.log("MyDevice settings where changed");
+    };
+
+    /**
+     * onRenamed is called when the user updates the device's name.
+     * This method can be used this to synchronise the name to the device.
+     * @param {string} name The new name
+     */
+    onRenamed = async (name: string) => {
+        this.log("MyDevice was renamed");
+    };
+
+    /**
+     * onDeleted is called when the user deleted the device.
+     */
+    onDeleted = async () => {
+        this.log("MyDevice has been deleted");
+    };
+}
+
+module.exports = MyDevice;

@@ -25,5 +25,39 @@
   "author": {
     "name": "Hugo Kooi",
     "email": "info@hugokooi.nl"
-  }
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Car"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [],
+      "images": {
+        "small": "/drivers/car-price-charging/assets/images/small.png",
+        "large": "/drivers/car-price-charging/assets/images/large.png",
+        "xlarge": "/drivers/car-price-charging/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "list_device",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_device"
+          }
+        },
+        {
+          "id": "add_device",
+          "template": "add_devices"
+        }
+      ],
+      "id": "car-price-charging"
+    }
+  ]
 }
