@@ -1,7 +1,9 @@
 {
-  "extends": ["athom/homey-app", "plugin:prettier/recommended"],
-  "plugins": ["@typescript-eslint"],
+  "extends": ["athom/homey-app", "plugin:prettier/recommended", "plugin:import/recommended", "plugin:import/typescript"],
+  "plugins": ["@typescript-eslint", "import"],
   "rules": {
+    "node/no-missing-import": "off",
+    "import/no-unresolved": "error",
     "prettier/prettier": "warn",
     "import/extensions": [
       "error",
@@ -11,13 +13,13 @@
         "ts": "never"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts", ".js"],
-        "moduleDirectory": ["types", "node_modules"]
-      }
-    }
   }
+  // "settings": {
+  //   "import/resolver": {
+  //     "node": {
+  //       "extensions": [".ts", ".js"],
+  //       "moduleDirectory": ["types", "node_modules"]
+  //     }
+  //   }
+  // }
 }

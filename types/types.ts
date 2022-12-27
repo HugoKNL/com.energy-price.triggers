@@ -1,5 +1,3 @@
-"use strict";
-
 import OneToHundred from "./oneToHundred";
 
 import Country from "./supportedCountries";
@@ -47,5 +45,3 @@ const state: PoweredCarServiceState = {
     chargeOver100: false,
     dateTimeReady: new Date(),
 };
-
-console.log(state);

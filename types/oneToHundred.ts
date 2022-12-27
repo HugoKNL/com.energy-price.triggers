@@ -1,5 +1,3 @@
-"use strict";
-
 type OneToHundred =
     | 0
     | 1

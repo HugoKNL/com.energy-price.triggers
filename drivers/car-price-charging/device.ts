@@ -1,6 +1,6 @@
-"use strict";
-
 import Homey from "homey";
+import Fetcher from "../../api/fetcher";
+import parseApiDateString from "../../api/utils/formatDateApiInput";
 
 class MyDevice extends Homey.Device {
     /**
@@ -11,7 +11,20 @@ class MyDevice extends Homey.Device {
 
         this.registerCapabilityListener("onoff", async (value) => {
             this.log("Turned On/Off: ", value);
+            const fetcher = new Fetcher(
+                "4b7b78a3-8849-460c-92ec-72197b17bcc6",
+                "10YNL----------L"
+            );
+            const fetchedJson = await fetcher.fetchData(
+                new Date("2022-12-28T00:00:00"),
+                new Date("2022-12-29T00:00:00")
+            );
+            this.log(parseApiDateString(new Date("2022-12-28T00:00:00")));
+            const output = JSON.stringify(await fetchedJson);
+            this.log(output);
         });
+
+        // this.setCapabilityValue("onoff", () => {});
     };
 
     /**

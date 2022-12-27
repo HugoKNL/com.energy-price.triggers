@@ -1,5 +1,3 @@
-"use strict";
-
 import { randomUUID } from "crypto";
 
 import Homey from "homey";

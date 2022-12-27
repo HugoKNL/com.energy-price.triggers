@@ -1,9 +1,7 @@
-"use strict";
-
 export enum CountryMap {
     "nl" = "Nederland",
 }
 
-export type Country = keyof typeof CountryMap;
+type Country = keyof typeof CountryMap;
 
 export default Country;
