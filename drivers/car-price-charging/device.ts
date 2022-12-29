@@ -12,7 +12,7 @@ class MyDevice extends Homey.Device {
         this.registerCapabilityListener("onoff", async (value) => {
             this.log("Turned On/Off: ", value);
             const fetcher = new Fetcher(
-                "4b7b78a3-8849-460c-92ec-72197b17bcc6",
+                Homey.env.ENTSOE_API_TOKEN,
                 "10YNL----------L"
             );
             const fetchedJson = await fetcher.fetchData(
@@ -20,7 +20,7 @@ class MyDevice extends Homey.Device {
                 new Date("2022-12-29T00:00:00")
             );
             this.log(parseApiDateString(new Date("2022-12-28T00:00:00")));
-            const output = JSON.stringify(await fetchedJson);
+            const output = JSON.stringify(fetchedJson);
             this.log(output);
         });
 
